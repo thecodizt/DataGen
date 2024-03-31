@@ -1,2 +1,4 @@
+import streamlit as st
+
 def network_timeseries():
-    pass
+    st.title("Network Time Series Data Generator")

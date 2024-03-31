@@ -1,2 +1,4 @@
+import streamlit as st
+
 def with_sample():
-    pass
+    st.title("With Sample Data Generator")
