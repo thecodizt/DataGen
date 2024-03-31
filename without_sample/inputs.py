@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_datetime_range_picker import datetime_range_picker
+from streamlit_date_picker import date_range_picker, PickerType, Unit, date_picker
 
 def ui_input():
     
@@ -20,7 +20,10 @@ def ui_input():
         
         if table_type == "Time Series":
             st.write("Index Range")
-            datetime_string = datetime_range_picker(start=-30, end=0, unit='seconds', key=f'range_picker_{i}', picker_button={'is_show': False})
+            datetime_string = date_range_picker(picker_type=PickerType.time.string_value,
+                                      start=-30, end=0, unit=Unit.minutes.string_value,
+                                      key='range_picker'
+                                    )
             if datetime_string is not None:
                 start_date = datetime_string[0]
                 end_date = datetime_string[1]
@@ -83,7 +86,11 @@ def ui_input():
                 start = None
                 end = None
                 
-                datetime_string = datetime_range_picker(start=-30, end=0, unit='seconds', key=f'range_picker_{i}_{j}', picker_button={'is_show': False})
+                st.write("Enter date range: ")
+                datetime_string = date_range_picker(picker_type=PickerType.time.string_value,
+                                      start=-30, end=0, unit=Unit.minutes.string_value,
+                                      key=f'range_picker_{i}_{j}'
+                                    )
                 num_unique = st.number_input(f"Number of unique date points for {column_name}: ", min_value=1, max_value=num_records)
                 distribution = st.selectbox("Select the expected frequency distribution: ", ["Uniform", "Normal", "Exponential"], key=f'dist_date_{i}')
                 
