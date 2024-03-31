@@ -3,7 +3,6 @@ attrs
 blinker
 cachetools
 certifi
-charset-normalize
 click
 gitdb
 GitPython
