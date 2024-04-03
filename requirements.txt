@@ -97,7 +97,7 @@ smmap==5.0.1
 stack-data==0.6.3
 statsmodels==0.14.1
 streamlit==1.31.0
-streamlit-date-picker==0.0.26
+streamlit-date-picker==0.0.2b6
 tenacity==8.2.3
 tensorboard==2.16.2
 tensorboard-data-server==0.7.2
