@@ -3,8 +3,8 @@ import pandas as pd
 
 def generate_series_with_distribution(unique_values, distribution_name, num_records):
     if distribution_name == 'Uniform':
-        values = np.random.uniform(range(len(unique_values)), size=num_records)
-        values = [unique_values[int(val)] for val in values] 
+        index_values = np.random.uniform(low=0, high=len(unique_values) - 1, size=num_records)
+        values = [unique_values[int(val)] for val in index_values] 
     elif distribution_name == 'Normal':
         # Calculate mean and standard deviation based on the number of unique strings
         mean = (len(unique_values) - 1) / 2  # mean is the middle index
