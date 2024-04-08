@@ -11,8 +11,9 @@ def generate_random_noise_with_properties(min_val=0, max_val=1, mean=0, std_dev=
     # Calculate the actual slope of the signal
     actual_slope = np.polyfit(time, signal, 1)[0]
     
-    # Adjust the signal slope to match the target_slope
-    signal += (slope - actual_slope) * time
+    # Adjust the amplitude of the sinusoidal signal to match the target slope
+    adjusted_amplitude = amplitude * (slope / actual_slope)
+    signal *= adjusted_amplitude
     
     # Add the sinusoidal signal to the white noise
     data = noise + signal
