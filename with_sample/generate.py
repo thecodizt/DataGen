@@ -42,12 +42,14 @@ def generate(params, table):
 
     result = pd.merge(generated_numeric_data, non_numeric_data, on='_id')
 
-    
-    st.dataframe(generated_numeric_data)
-    st.dataframe(non_numeric_data)
     print(num_generated_samples, len(generated_numeric_data), len(result), len(non_numeric_data))
 
     result.drop('_id', axis=1, inplace=True)
     table.drop('_id', axis=1, inplace=True)
+    
+    result = result.sample(int(params['scale_factor'] * len(table)))
+    
+    result.reset_index(inplace=True)
+    result.drop('index', axis=1, inplace=True)
 
     return result

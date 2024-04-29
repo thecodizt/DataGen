@@ -224,14 +224,14 @@ def config_generator():
         source_code = open('./pages/subnode_graph.html', 'r', encoding='utf-8').read()
         components.html(source_code, height=400)
 
-    st.subheader("Combined Node Graph")
+    # st.subheader("Combined Node Graph")
 
-    combined_graph_check = st.toggle("Visualize Combined Graph")
+    # combined_graph_check = st.toggle("Visualize Combined Graph")
 
-    if combined_graph_check:
-        combined_graph.save_graph('./pages/combined_graph.html')
-        source_code = open('./pages/combined_graph.html', 'r', encoding='utf-8').read()
-        components.html(source_code, height=400)
+    # if combined_graph_check:
+    #     combined_graph.save_graph('./pages/combined_graph.html')
+    #     source_code = open('./pages/combined_graph.html', 'r', encoding='utf-8').read()
+    #     components.html(source_code, height=400)
         
     is_generate = st.button("Generate Config")
     

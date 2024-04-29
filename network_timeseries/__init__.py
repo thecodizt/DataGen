@@ -29,6 +29,8 @@ def network_timeseries():
             config = yaml.safe_load(file_contents)
                     
     if config is not None:
+        st.subheader("Configuration")
+        st.write(config)
         is_generate = st.button("Generate Data")
         st.divider()
         

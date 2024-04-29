@@ -19,6 +19,10 @@ def with_sample():
 
     if input_method == "UI":
         params, tables = ui_input()
+        
+        if params:
+            st.subheader("Configuration")
+            st.write(params)
 
     elif input_method == "YAML":
         pass
