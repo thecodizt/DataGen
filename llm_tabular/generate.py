@@ -11,7 +11,9 @@ def generate(config):
     all_generations = pd.DataFrame()
     valid_generations = pd.DataFrame()
     columns = [config["column_info"][i]["col_name"] for i in range(config["num_columns"])]
-    schema = generate_record_schema(columns)
+    types = [config["column_info"][i]["type"] for i in range(config["num_columns"])]
+    
+    schema = generate_record_schema(columns, types)
     
     total_iterations = 0
     previous_responses = []

@@ -7,13 +7,13 @@ def extract_yaml_snippets(markdown_string):
     snippets = re.findall(pattern, markdown_string, re.DOTALL)
     return snippets
 
-def generate_record_schema(properties):
+def generate_record_schema(properties, types):
     schema = {
         'type': 'map',
         'mapping': {
             'RECORD': {
                 'type': 'map',
-                'mapping': {prop: {'type': 'str', 'required': False} for prop in properties}
+                'mapping': {properties[i]: {'type': types[i], 'required': False} for i in range(len(properties))}
             }
         }
     }

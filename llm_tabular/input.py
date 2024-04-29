@@ -31,11 +31,17 @@ def ui_input():
         col_name = st.text_input(f"Enter name of column {i+1}", key=f"col_input_{i}")
         col_desc = st.text_input(f"Enter detailed description of column {i+1}", key=f"col_input_desc_{i}")
         is_primary = st.checkbox(f"Primary Key", key=f"primary_key_col_{i}")
+        is_numeric = st.checkbox("Numeric Column", key=f"numeric_{i}")
+        
+        type = 'str'
+        if is_numeric:
+            type = "float"
         
         column_info[i] = {
             "col_name": col_name, 
             "col_desc": col_desc,
-            "is_primary": is_primary
+            "is_primary": is_primary,
+            "type": type,
         }
 
     config = dict()

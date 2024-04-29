@@ -4,6 +4,7 @@ from without_sample import without_sample
 from with_sample import with_sample
 from network_timeseries import network_timeseries
 from llm_tabular import few_shot
+from llm_relation import llm_relation
 
 def main():
     main_choice = None
@@ -39,7 +40,7 @@ def main():
     elif main_choice == choices[3]:
         few_shot()
     elif main_choice == choices[4]:
-        pass
+        llm_relation()
     else:
         st.error("Select an option from sidebar")
 
