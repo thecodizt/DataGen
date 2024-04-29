@@ -12,7 +12,7 @@ def evaulate_model(dataset_1, dataset_2, model, context):
         for rightId in range(leftId, len(dataset_2)):
             if leftId != rightId:
 
-                (result, response) = evaluate_record(dataset=dataset_1, dataset_2=dataset_2, model=f'{model}', leftId=leftId, rightId=rightId, context=context)
+                (result, response) = evaluate_record(dataset_1=dataset_1, dataset_2=dataset_2, model=f'{model}', leftId=leftId, rightId=rightId, context=context)
 
                 results_df = pd.concat([results_df, [{"leftId": leftId, "rightId": rightId, "result": result}]], ignore_index=True)
 
