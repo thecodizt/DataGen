@@ -6,6 +6,10 @@ import pandas as pd
 def evaulate_model(dataset_1, dataset_2, model, context):
     results_df = pd.DataFrame(columns=["leftId", "rightId", "result"])
     
+    st.subheader("Latest Response")
+    latest_resp = st.empty()
+    
+    st.subheader("Relation Mappings")
     res_st = st.empty()
 
     for leftId in range(len(dataset_1)):
@@ -14,6 +18,8 @@ def evaulate_model(dataset_1, dataset_2, model, context):
 
                 (result, response) = evaluate_record(dataset_1=dataset_1, dataset_2=dataset_2, model=f'{model}', leftId=leftId, rightId=rightId, context=context)
 
+                latest_resp.write(response)
+                
                 results_df = pd.concat([results_df, pd.DataFrame([[leftId, rightId, result]], columns=results_df.columns)], ignore_index=True)
 
                 if len(results_df)>0:
