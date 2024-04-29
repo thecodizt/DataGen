@@ -17,7 +17,7 @@ def evaulate_model(dataset_1, dataset_2, model, context):
                 results_df = pd.concat([results_df, pd.DataFrame([[leftId, rightId, result]], columns=results_df.columns)], ignore_index=True)
 
                 if len(results_df)>0:
-                    st.dataframe(results_df)   
+                    res_st.dataframe(results_df)   
                     
                                  
     return results_df
