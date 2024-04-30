@@ -13,17 +13,16 @@ def evaulate_model(dataset_1, dataset_2, model, context):
     res_st = st.empty()
 
     for leftId in range(len(dataset_1)):
-        for rightId in range(leftId, len(dataset_2)):
-            if leftId != rightId:
+        for rightId in range(0, len(dataset_2)):
 
-                (result, response) = evaluate_record(dataset_1=dataset_1, dataset_2=dataset_2, model=f'{model}', leftId=leftId, rightId=rightId, context=context)
+            (result, response) = evaluate_record(dataset_1=dataset_1, dataset_2=dataset_2, model=f'{model}', leftId=leftId, rightId=rightId, context=context)
 
-                latest_resp.write(response)
-                
-                results_df = pd.concat([results_df, pd.DataFrame([[leftId, rightId, result]], columns=results_df.columns)], ignore_index=True)
+            latest_resp.write(response)
+            
+            results_df = pd.concat([results_df, pd.DataFrame([[leftId, rightId, result]], columns=results_df.columns)], ignore_index=True)
 
-                if len(results_df)>0:
-                    res_st.dataframe(results_df)   
+            if len(results_df)>0:
+                res_st.dataframe(results_df)   
                     
                                  
     return results_df
